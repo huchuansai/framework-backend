@@ -81,6 +81,18 @@ spring:
   mvc:
     format:
       date-time: yyyy-MM-dd HH:mm:ss
+  flyway:
+    enabled: true
+    locations: classpath:/sql
+    baseline-on-migrate: true
+    clean-disabled: true
+    table: flyway_schema_history
+    # 设置为false之后，对之前的migration文件做修改不会去做校验
+    validate-on-migrate: false
+    out-of-order: false
+#    url: ${spring.datasource.dynamic.datasource.master.url}
+#    user: ${spring.datasource.dynamic.datasource.master.username}
+#    password: ${spring.datasource.dynamic.datasource.master.password}
   jackson:
     # 日期格式化
     date-format: yyyy-MM-dd HH:mm:ss
